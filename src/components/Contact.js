@@ -8,28 +8,31 @@ class Contact extends React.Component {
       online: props.online,
     };
   }
-render() {
-  return (
-    <div className="Contact">
-      <img className="avatar" src={this.props.avatar} alt="user_picture" />
-      <div>
-        <article className="name">{this.props.name}</article>
-        <div className="status">
+
+  render() {
+    return (
+      <div className='Contact'>
+        <img className='avatar' src={this.props.avatar} alt={this.props.name} />
+        <div className='name'>
+          {this.props.name}
           <div
-            className={this.state.online ? "status-online" : "status-offline"}
-            onClick={event => {
+            className='status'
+            onClick={(event) => {
               const newStatus = !this.state.online;
-              this.setState({ online: newStatus})
+              this.setState({ online: newStatus });
             }}
-          ></div>
-          <div className="status-text">
-            {this.state.online ? "Online" : "Offline"}
+          >
+            <div
+              className={this.state.online ? 'status-online' : 'status-offline'}
+            ></div>
+            <span className='status-text'>
+              {this.state.online ? 'online' : 'offline'}
+            </span>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 }
 
 export default Contact;
